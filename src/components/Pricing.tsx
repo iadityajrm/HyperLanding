@@ -34,7 +34,7 @@ export const Pricing = () => {
     const interval = setInterval(async () => {
       attempts++;
       try {
-        const res = await fetch(`/api/get-license?email=${encodeURIComponent(email)}`);
+        const res = await fetch(`/.netlify/functions/get-license?email=${encodeURIComponent(email)}`);
         const data = await res.json();
         
         if (data && data.success && data.passcode) {
