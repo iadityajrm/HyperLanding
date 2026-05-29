@@ -111,7 +111,7 @@ const SuccessContent = () => {
       <div className="flex flex-col gap-sm">
         {/* MacOS installer download */}
         <a
-          href="/downloads/hyper-mac.dmg"
+          href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-mac.dmg"
           className="btn-gradient w-full font-semibold text-sm px-6 py-4 rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.01]"
         >
           <span className="material-symbols-outlined text-lg">desktop_mac</span>
@@ -120,7 +120,7 @@ const SuccessContent = () => {
 
         {/* Windows installer download */}
         <a
-          href="/downloads/hyper-windows.exe"
+          href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-windows.exe"
           className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-semibold text-sm px-6 py-4 rounded-2xl transition-all shadow-sm flex items-center justify-center gap-3 cursor-pointer border border-outline/10 hover:scale-[1.01]"
         >
           <span className="material-symbols-outlined text-lg">desktop_windows</span>

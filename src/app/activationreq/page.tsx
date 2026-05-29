@@ -127,7 +127,7 @@ export default function ActivationReqPage() {
                 <div className="flex flex-col gap-sm pt-4">
                   {/* macOS Installer */}
                   <a
-                    href="/downloads/hyper-mac.dmg"
+                    href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-mac.dmg"
                     className="btn-gradient w-full font-medium text-xs px-5 py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer text-white"
                   >
                     <span className="material-symbols-outlined text-base">desktop_mac</span>
@@ -136,7 +136,7 @@ export default function ActivationReqPage() {
 
                   {/* Windows Installer */}
                   <a
-                    href="/downloads/hyper-windows.exe"
+                    href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-windows.exe"
                     className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-medium text-xs px-5 py-3 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer border border-outline/10"
                   >
                     <span className="material-symbols-outlined text-base">desktop_windows</span>
