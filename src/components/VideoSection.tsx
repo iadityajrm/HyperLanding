@@ -23,40 +23,48 @@ export const VideoSection = () => {
         </ScrollReveal>
       </section>
 
-      {/* Intro Video Card Container */}
+      {/* Demo Video */}
       <section id="demo" className="max-w-[1200px] mx-auto px-gutter py-xl scroll-mt-24">
         <ScrollReveal delay={150}>
-          <div
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="w-full aspect-video bg-surface-variant rounded-2xl relative overflow-hidden group cursor-pointer ambient-shadow flex items-center justify-center border border-outline-variant/10"
-          >
-            {isPlaying ? (
-              <div className="absolute inset-0 bg-inverse-surface/90 flex flex-col items-center justify-center text-inverse-on-surface p-4 transition-all duration-300">
-                <span className="material-symbols-outlined text-6xl text-primary animate-pulse mb-4">
-                  motion_photos_on
-                </span>
-                <h3 className="text-xl font-medium mb-1">
-                  Demo Playback Simulation
-                </h3>
-                <p className="text-sm text-surface-variant max-w-[448px] text-center">
-                  In a production environment, this triggers a high-fidelity
-                  interactive workflow visualization showing background tracking.
-                </p>
-                <button className="mt-4 px-6 py-2 bg-primary text-on-primary rounded-full text-xs font-semibold hover:bg-primary/90 transition-all cursor-pointer">
-                  Pause Demo
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className="absolute inset-0 bg-surface-tint/10 transition-opacity group-hover:opacity-20 duration-300" />
+          <div className="w-full aspect-video rounded-2xl overflow-hidden ambient-shadow border border-outline-variant/10 relative group">
+            {!isPlaying ? (
+              /* Thumbnail overlay with play button */
+              <div
+                className="absolute inset-0 cursor-pointer"
+                onClick={() => setIsPlaying(true)}
+              >
+                {/* YouTube thumbnail */}
+                <img
+                  src="https://img.youtube.com/vi/FLb1hkzn7BA/maxresdefault.jpg"
+                  alt="Hyper Demo Video"
+                  className="w-full h-full object-cover"
+                />
+                {/* Dark overlay on hover */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                {/* Play button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="bg-primary/90 text-on-primary w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md transition-transform group-hover:scale-110 duration-300 shadow-lg cursor-pointer">
-                    <span className="material-symbols-outlined text-4xl ml-2">
+                  <button className="bg-primary w-20 h-20 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 duration-300 shadow-xl cursor-pointer">
+                    <span className="material-symbols-outlined text-4xl ml-1 text-white">
                       play_arrow
                     </span>
                   </button>
                 </div>
-              </>
+                {/* Watch demo label */}
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center">
+                  <span className="bg-black/50 backdrop-blur-sm text-white text-xs font-medium px-4 py-1.5 rounded-full">
+                    Watch Demo
+                  </span>
+                </div>
+              </div>
+            ) : (
+              /* Actual YouTube embed */
+              <iframe
+                src="https://www.youtube.com/embed/FLb1hkzn7BA?autoplay=1&rel=0&modestbranding=1&color=white"
+                title="Hyper Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
             )}
           </div>
         </ScrollReveal>

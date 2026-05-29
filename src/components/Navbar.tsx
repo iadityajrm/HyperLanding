@@ -14,7 +14,7 @@ export const Navbar = () => {
             className="w-10 h-10 object-contain"
           />
           <span className="text-2xl font-bold text-on-surface">
-            Hyper
+            HYPER
           </span>
         </div>
         <div className="hidden md:flex items-center gap-lg text-base">
