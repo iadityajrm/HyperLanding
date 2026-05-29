@@ -340,10 +340,10 @@ export const Pricing = () => {
                   <button
                     onClick={async () => {
                       if (!customerEmail) return;
-                      // Trigger webhook manually
                       await fetch('/.netlify/functions/paddle-webhook', {
                         method: 'POST',
                         body: JSON.stringify({
+                          is_simulation: true,
                           event_type: 'transaction.completed',
                           data: { customer: { email: customerEmail } }
                         })
