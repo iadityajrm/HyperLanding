@@ -40,6 +40,9 @@ export const Footer = () => {
           <Link href="/refund" className="hover:text-primary transition-colors font-medium">
             Refund Policy
           </Link>
+          <Link href="/activationreq" className="hover:text-primary transition-colors font-medium">
+            Request Activation
+          </Link>
           <a href="mailto:info@synaptyc.cloud" className="hover:text-primary transition-colors font-medium">
             Contact Us
           </a>

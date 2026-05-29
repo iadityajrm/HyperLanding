@@ -1,8 +1,5 @@
 import { neon } from '@neondatabase/serverless';
 import crypto from 'crypto';
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 function verifyPaddleWebhook(req: Request, rawBody: string): boolean {
   const signature = req.headers.get('paddle-signature');
@@ -91,26 +88,6 @@ export default async function handler(req: Request) {
       console.error('Database insert error:', dbError);
       return new Response(JSON.stringify({ error: 'Database error' }), { status: 500 });
     }
-    
-    // Email the passcode
-    if (process.env.RESEND_API_KEY) {
-      try {
-        await resend.emails.send({
-          from: 'Hyper <noreply@synaptyc.cloud>',
-          to: email,
-          subject: 'Your Hyper License Key',
-          html: `
-            <h1>Thank you for purchasing Hyper!</h1>
-            <p>Your license passcode is: <strong>${passcode}</strong></p>
-            <p>Please enter this key inside the Hyper application to activate it.</p>
-          `
-        });
-      } catch (emailError) {
-        console.error('Email sending error:', emailError);
-        // We still return 200 to Paddle so it doesn't retry
-      }
-    }
-
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
     console.error('Webhook processing error:', error);

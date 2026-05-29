@@ -27,7 +27,7 @@ export default async function handler(req: Request) {
     `;
 
     if (licenses.length === 0) {
-      return new Response(JSON.stringify({ error: 'License not found' }), { status: 404 });
+      return new Response(JSON.stringify({ success: false, error: 'License not found yet' }), { status: 200 });
     }
 
     return new Response(JSON.stringify({ success: true, passcode: licenses[0].passcode }), { status: 200 });
