@@ -250,35 +250,6 @@ export const Pricing = () => {
                     "Get Lifetime Access"
                   )}
                 </button>
-
-                {/* Simulated payment success option to test database flow locally */}
-                <div className="mt-8 pt-6 border-t border-outline-variant/30 flex flex-col items-center gap-3">
-                  <p className="text-xs text-on-surface-variant font-medium">Test Database Implementation</p>
-                  <input 
-                    type="email" 
-                    placeholder="Enter test email..." 
-                    className="w-full max-w-[280px] px-4 py-2 text-sm rounded-lg border border-outline-variant/50 bg-surface focus:outline-none focus:border-primary text-on-surface"
-                    value={customerEmail}
-                    onChange={(e) => setCustomerEmail(e.target.value)}
-                  />
-                  <button
-                    onClick={async () => {
-                      if (!customerEmail) return;
-                      await fetch('/.netlify/functions/paddle-webhook', {
-                        method: 'POST',
-                        body: JSON.stringify({
-                          is_simulation: true,
-                          event_type: 'transaction.completed',
-                          data: { customer: { email: customerEmail } }
-                        })
-                      });
-                      startLicensePolling(customerEmail);
-                    }}
-                    className="text-xs font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Simulate Payment Success
-                  </button>
-                </div>
               </div>
             )}
           </ScrollReveal>
