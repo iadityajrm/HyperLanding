@@ -60,71 +60,21 @@ export const Pricing = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.Paddle) {
-      setPaddleLoaded(true);
-      // Pre-initialize events so they are caught
-      window.Paddle.Environment.set("production");
-      window.Paddle.Initialize({
-        token: "live_7eae23ca5c1ce8779b7357b7b2e", // Production Client Token
-        eventCallback: (event: any) => {
-          if (event && event.name === "checkout.completed") {
-            console.log("Checkout completed!", event);
-            const email = event.data?.customer?.email || event.data?.customer_details?.email;
-            if (email) {
-              startLicensePolling(email);
-            } else {
-              setPaymentSuccess(true);
-            }
-          }
-        }
-      });
-    }
+    // Paddle integration is now securely hosted on synaptyc.cloud
+    setPaddleLoaded(true);
   }, []);
 
   const handlePaddleCheckout = () => {
     setLoading(true);
-
-    if (typeof window !== "undefined" && window.Paddle) {
-      try {
-        // Initialize Paddle v2 in production environment
-        window.Paddle.Environment.set("production");
-        window.Paddle.Initialize({
-          token: "live_7eae23ca5c1ce8779b7357b7b2e", // Production Client Token
-          eventCallback: (event: any) => {
-            if (event && event.name === "checkout.completed") {
-              console.log("Checkout completed!", event);
-              const email = event.data?.customer?.email || event.data?.customer_details?.email;
-              if (email) {
-                startLicensePolling(email);
-              } else {
-                setPaymentSuccess(true);
-              }
-            }
-          }
-        });
-
-        // Open live overlay checkout
-        window.Paddle.Checkout.open({
-          items: [
-            {
-              priceId: "pri_01ksr58zvdfggd46qevjsm1eee", // Production Price ID
-              quantity: 1,
-            },
-          ],
-          settings: {
-            theme: "light",
-            displayMode: "overlay",
-          },
-        });
-        
-        setTimeout(() => setLoading(false), 1000);
-      } catch (err) {
-        console.error("Paddle SDK live checkout initialization failed:", err);
-        setLoading(false);
-      }
-    } else {
-      console.warn("Paddle.js is not loaded yet on the window object.");
-      setLoading(false);
+    if (typeof window !== "undefined") {
+      const checkoutBaseUrl = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:3000"
+        : "https://synaptyc.cloud";
+      
+      const successUrl = `${window.location.origin}/success`;
+      const checkoutUrl = `${checkoutBaseUrl}/purchasehyper?product=hyper&return_url=${encodeURIComponent(successUrl)}`;
+      
+      window.location.href = checkoutUrl;
     }
   };
 
@@ -138,32 +88,6 @@ export const Pricing = () => {
 
   return (
     <>
-      {/* Load Paddle v2 JS securely in background */}
-      <Script
-        src="https://cdn.paddle.com/paddle/v2/paddle.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          setPaddleLoaded(true);
-          console.log("Paddle JS loaded successfully");
-          if (typeof window !== "undefined" && window.Paddle) {
-            window.Paddle.Environment.set("production");
-            window.Paddle.Initialize({
-              token: "live_7eae23ca5c1ce8779b7357b7b2e",
-              eventCallback: (event: any) => {
-                if (event && event.name === "checkout.completed") {
-                  console.log("Checkout completed!", event);
-                  const email = event.data?.customer?.email || event.data?.customer_details?.email;
-                  if (email) {
-                    startLicensePolling(email);
-                  } else {
-                    setPaymentSuccess(true);
-                  }
-                }
-              }
-            });
-          }
-        }}
-      />
 
       <section id="pricing" className="bg-surface-container py-xl scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-gutter">

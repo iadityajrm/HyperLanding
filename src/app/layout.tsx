@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Hyper automatically analyzes your workflow in the background. No timers, no manual tracking, just deep insights into how you actually work.",
   icons: {
-    icon: "/fav.png",
+    icon: "/favicon.png",
   },
 };
 
