@@ -38,12 +38,12 @@ export const Founder = () => {
     <section className="bg-surface py-xl border-t border-outline-variant/10">
       <div className="max-w-[960px] mx-auto px-gutter">
         <ScrollReveal>
-          <div className="text-center mb-lg">
-            <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-              From the Founder
-            </h2>
-            <h3 className="text-3xl font-normal text-on-surface">
-              Why We Built Hyper
+          <div className="text-center mb-lg flex flex-col items-center">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+              FROM THE FOUNDER
+            </span>
+            <h3 className="text-3xl font-normal text-on-surface max-w-[650px] mx-auto leading-tight">
+              I built Hyper because I kept lying to myself about how I spent my time.
             </h3>
           </div>
         </ScrollReveal>
@@ -81,42 +81,25 @@ export const Founder = () => {
           {/* Right Column: Founder's Note */}
           <div className="md:col-span-8 flex flex-col text-[#50453b]">
             <ScrollReveal delay={200}>
-              <h4 className="text-xl font-semibold text-on-surface mb-3 flex items-center gap-2">
-                Hey, Explorer!
-              </h4>
-
-              <p className="text-base leading-relaxed mb-4">
-                I'm Aditya, the creator of Hyper. I've built this application to solve a problem that almost all of us face in today's digital workspaces—<b>too much theater around productivity.</b>
-              </p>
-
-              <p className="text-base leading-relaxed mb-4">
-                I learned early on that <b>deep, uninterrupted creative flow is a goldmine of opportunities</b>. But most productivity tools just show <i>vanity metrics</i>. They force you to start and stop timers, manually log tasks, and act like you are working, rather than letting you actually work.
-              </p>
-
-              <h5 className="font-semibold text-on-surface mb-3">
-                So I built Hyper for 3 reasons:
-              </h5>
-
-              <ol className="flex flex-col gap-3.5 pl-1 mb-6 text-sm">
-                <li className="flex gap-3">
-                  <span className="font-bold text-primary text-base">1.</span>
-                  <div>
-                    <span className="font-bold text-on-surface">Find your true cognitive peak</span>, identifying exactly when your mind is at its peak focus capacity.
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-primary text-base">2.</span>
-                  <div>
-                    <span className="font-bold text-on-surface">Eliminate timer fatigue</span>, completely replacing manual tracking sheets and start-stop switches.
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold text-primary text-base">3.</span>
-                  <div>
-                    <span className="font-bold text-on-surface">Discover context-switching costs</span>, laying bare exactly how much attention is leaked during micro-distractions.
-                  </div>
-                </li>
-              </ol>
+              <div className="text-base md:text-lg leading-relaxed flex flex-col gap-4 text-on-surface-variant">
+                <p>
+                  I'm Aditya. I'd end every day feeling busy but not done.
+                </p>
+                <p>
+                  I tried timers, journals, habit trackers. All of them 
+                  needed me to remember to use them — which meant I forgot.
+                </p>
+                <p>
+                  So I built something that just watches, and tells me the 
+                  truth. No input. No streaks. No guilt.
+                </p>
+                <p className="font-semibold text-on-surface text-lg mt-2">
+                  That's Hyper.
+                </p>
+                <p className="font-medium text-primary mt-2">
+                  — Aditya, Creator of Hyper
+                </p>
+              </div>
             </ScrollReveal>
           </div>
         </div>

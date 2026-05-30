@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { SocialProofStrip } from "@/components/SocialProofStrip";
 import { BentoGrid } from "@/components/BentoGrid";
 import { VideoSection } from "@/components/VideoSection";
 import { Pricing } from "@/components/Pricing";
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <SocialProofStrip />
         <BentoGrid />
         <VideoSection />
         <Pricing />

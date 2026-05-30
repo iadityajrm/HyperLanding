@@ -92,10 +92,17 @@ export const Pricing = () => {
       <section id="pricing" className="bg-surface-container py-xl scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-gutter">
           <ScrollReveal>
-            <div className="text-center mb-lg">
-              <h2 className="text-3xl font-normal text-on-surface mb-xs">
-                {paymentSuccess ? "Access Your Software" : "Simple, Honest Pricing"}
+            <div className="text-center mb-lg flex flex-col items-center">
+              <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+                SIMPLE PRICING
+              </span>
+              <h2 className="text-3xl md:text-4xl font-normal text-on-surface mb-xs">
+                One price. Yours forever.
               </h2>
+              <p className="text-base text-on-surface-variant max-w-[600px] mx-auto mt-2">
+                Most productivity apps charge $10–15/month and still need you to do the work. 
+                Hyper does the work and costs less than a coffee.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -160,7 +167,7 @@ export const Pricing = () => {
 
                   {/* Windows installer download */}
                   <a
-                    href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-windows.exe"
+                    href="https://github.com/iadityajrm/HyperLanding/releases/releases/download/v1.0.1/hyper-windows.exe"
                     className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-medium text-sm px-6 py-4 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer border border-outline/10"
                   >
                     <span className="material-symbols-outlined text-lg">desktop_windows</span>
@@ -183,39 +190,49 @@ export const Pricing = () => {
                 </button>
               </div>
             ) : (
-              <div className="max-w-[448px] mx-auto bg-surface-container-lowest rounded-2xl p-lg ambient-shadow border border-outline-variant/30 text-center">
-                <h3 className="text-2xl font-medium text-on-surface mb-sm">
+              <div className="max-w-[448px] mx-auto bg-surface-container-lowest rounded-2xl p-lg ambient-shadow border border-outline-variant/30 text-center relative overflow-hidden flex flex-col items-center">
+                <span className="absolute top-4 right-4 bg-primary/10 text-primary border border-primary/20 text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  🔒 Limited to first 500 users
+                </span>
+                
+                <h3 className="text-2xl font-medium text-on-surface mb-sm mt-4">
                   Lifetime Access
                 </h3>
-                <div className="text-5xl font-light text-primary mb-md">$7.99</div>
+                <div className="flex items-baseline justify-center gap-2 mb-md">
+                  <span className="text-5xl font-light text-primary">$7.99</span>
+                  <span className="text-sm text-on-surface-variant line-through">$29</span>
+                  <span className="text-xs text-primary font-bold bg-primary/10 px-2 py-0.5 rounded-full">
+                    Early Access Pricing
+                  </span>
+                </div>
                 <p className="text-sm text-on-surface-variant mb-md leading-relaxed">
                   One-time purchase. No subscriptions, no hidden fees. Just passive
                   intelligence for life.
                 </p>
-                <ul className="text-left text-sm text-on-surface-variant mb-lg space-y-sm">
+                <ul className="text-left text-sm text-on-surface-variant mb-lg space-y-sm w-full">
                   <li className="flex items-center gap-sm">
                     <span className="material-symbols-outlined text-primary">
                       check_circle
                     </span>
-                    Complete focus history
+                    Full focus history — see any day, any week, ever
                   </li>
                   <li className="flex items-center gap-sm">
                     <span className="material-symbols-outlined text-primary">
                       check_circle
                     </span>
-                    Priority processing
+                    Always improving — lifetime updates as Hyper gets smarter
                   </li>
                   <li className="flex items-center gap-sm">
                     <span className="material-symbols-outlined text-primary">
                       check_circle
                     </span>
-                    All future updates
+                    Every feature, forever — nothing held behind a paywall
                   </li>
                   <li className="flex items-center gap-sm">
                     <span className="material-symbols-outlined text-primary">
                       check_circle
                     </span>
-                    Local-first data
+                    100% local — your data never touches our servers
                   </li>
                 </ul>
                 <button
@@ -247,9 +264,12 @@ export const Pricing = () => {
                       Initializing Secure Payment...
                     </>
                   ) : (
-                    "Get Lifetime Access"
+                    "Get Lifetime Access →"
                   )}
                 </button>
+                <p className="text-[11px] text-on-surface-variant/70 mt-4">
+                  30-day refund, no questions asked.
+                </p>
               </div>
             )}
           </ScrollReveal>

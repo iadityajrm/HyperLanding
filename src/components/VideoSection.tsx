@@ -8,23 +8,46 @@ export const VideoSection = () => {
 
   return (
     <>
-      {/* Product Pillars Copy */}
-      <section className="max-w-[1200px] mx-auto px-gutter py-xl text-center">
+      {/* Zero Friction Section */}
+      <section className="max-w-[800px] mx-auto px-gutter py-xl text-center flex flex-col items-center">
         <ScrollReveal>
-          <h2 className="text-3xl md:text-4xl font-normal text-on-surface mb-md">
-            Zero Friction. Focus Stability. Deep Clarity.
+          <h2 className="text-3xl md:text-4xl font-light text-on-surface mb-md">
+            Set it up in 60 seconds. Then forget it exists.
           </h2>
-          <p className="text-lg text-on-surface-variant max-w-[672px] mx-auto leading-relaxed">
-            Hyper is designed to be invisible. It runs quietly in the background,
-            requiring no manual input, ensuring your creative flow remains entirely
-            uninterrupted while gathering the insights you need to optimize your
-            day.
+          <p className="text-base md:text-lg text-on-surface-variant max-w-[672px] mx-auto leading-relaxed mb-6">
+            Hyper asks for nothing. No projects to create, no 
+            categories to label, no habits to build. Open it once, 
+            grant permissions, and it starts working. Come back at 
+            the end of the day to see what it found.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-on-surface-variant font-medium">
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-500 font-bold">✓</span>
+              <span>No account required</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-500 font-bold">✓</span>
+              <span>All data stays on your computer</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-500 font-bold">✓</span>
+              <span>Works with every app automatically</span>
+            </div>
+          </div>
         </ScrollReveal>
       </section>
 
       {/* Demo Video */}
-      <section id="demo" className="max-w-[1200px] mx-auto px-gutter py-xl scroll-mt-24">
+      <section id="demo" className="max-w-[1200px] mx-auto px-gutter py-xl scroll-mt-24 text-center">
+        <ScrollReveal delay={100} className="mb-8">
+          <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2 block">
+            SEE IT IN ACTION
+          </span>
+          <h2 className="text-3xl font-normal text-on-surface mb-xs max-w-[650px] mx-auto leading-tight">
+            90 seconds. That's all it takes to understand your whole week.
+          </h2>
+        </ScrollReveal>
+
         <ScrollReveal delay={150}>
           <div className="w-full aspect-video rounded-2xl overflow-hidden ambient-shadow border border-outline-variant/10 relative group">
             {!isPlaying ? (
@@ -67,6 +90,10 @@ export const VideoSection = () => {
               />
             )}
           </div>
+          <p className="text-xs md:text-sm text-on-surface-variant/80 mt-4 max-w-[500px] mx-auto leading-relaxed">
+            No voiceover, no scripted workflow — just a real Hyper 
+            session running on a real computer.
+          </p>
         </ScrollReveal>
       </section>
     </>

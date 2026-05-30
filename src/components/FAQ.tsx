@@ -13,24 +13,24 @@ export const FAQ = () => {
 
   const faqData: FAQItem[] = [
     {
-      question: "Is Hyper really passive? Do I need to start timers?",
-      answer: "Yes, Hyper is 100% passive. It operates quietly in your system background, detecting active window titles and focal changes. You never need to start, stop, or pause timers, meaning your actual creative flow is entirely uninterrupted.",
+      question: "Does Hyper actually run passively? I don't want to start timers or log anything.",
+      answer: "Correct. You open it once, grant permissions, and you're done. Hyper runs in your menu bar and tracks everything automatically. You never touch it again unless you want to.",
     },
     {
-      question: "How is my data secured? Does it upload to the cloud?",
-      answer: "Your privacy is our core architecture. Hyper is designed local-first. All analysis logs, window titles, and focus states remain stored strictly on your local disk. We do not operate remote tracking servers, meaning your workflow data never leaves your computer.",
+      question: "Does my data go to the cloud?",
+      answer: "Never. Everything Hyper tracks stays on your computer, in a local database only you can access. We don't have a server with your data. We can't see it. Nobody can.",
     },
     {
-      question: "Will Hyper slow down my computer's performance?",
-      answer: "Not at all. Hyper is optimized to run natively with extremely low footprints, consuming less than 0.1% CPU and negligible memory. It acts as a passive observer, waking up only upon window changes, ensuring your performance stays at 100%.",
+      question: "Will it slow my computer down?",
+      answer: "No. Hyper uses less than 0.1% CPU on average. You won't notice it running — which is exactly the point.",
     },
     {
-      question: "What is your refund policy?",
-      answer: "Since Hyper provides complete, unlimited lifetime license keys with zero operational subscription fees, all sales are final. We do not offer refunds. You can run Hyper passively for life with a single, honest one-time payment.",
+      question: "What's your refund policy?",
+      answer: "30 days, no questions. If it's not working for you, email us and we'll refund immediately.",
     },
     {
-      question: "How do I get support or ask questions?",
-      answer: "We are always happy to help! You can reach out directly to the Synaptyc team at info@synaptyc.cloud. We actively review all developer support requests and feedback.",
+      question: "How do I get help?",
+      answer: "Email us at hello@usehyper.com — we reply within 24 hours, usually faster.",
     },
   ];
 
@@ -42,12 +42,12 @@ export const FAQ = () => {
     <section className="bg-surface-container-low py-xl border-t border-outline-variant/10">
       <div className="max-w-[760px] mx-auto px-gutter">
         <ScrollReveal>
-          <div className="text-center mb-lg">
-            <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-              Questions & Answers
-            </h2>
+          <div className="text-center mb-lg flex flex-col items-center">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+              FAQ
+            </span>
             <h3 className="text-3xl font-normal text-on-surface">
-              Frequently Asked Questions
+              The stuff people always ask before downloading.
             </h3>
           </div>
         </ScrollReveal>
@@ -57,7 +57,9 @@ export const FAQ = () => {
             const isOpen = openIndex === index;
             return (
               <ScrollReveal key={index} delay={index * 50}>
-                <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/20 overflow-hidden shadow-sm transition-all duration-300">
+                <div className={`bg-surface-container-lowest rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
+                  isOpen ? "border-primary/30 ring-1 ring-primary/10" : "border-outline-variant/20"
+                }`}>
                   <button
                     onClick={() => toggleAccordion(index)}
                     className="w-full px-6 py-5 flex justify-between items-center text-left font-semibold text-base text-on-surface hover:text-primary transition-colors cursor-pointer"

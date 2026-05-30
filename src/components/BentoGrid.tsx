@@ -218,14 +218,16 @@ export const BentoGrid = () => {
   return (
     <section id="features" className="bg-surface py-xl scroll-mt-20">
       <div className="max-w-[1200px] mx-auto px-gutter">
-        {/* Bento Grid Header */}
         <ScrollReveal>
-          <div className="text-center mb-lg">
-            <h2 className="text-3xl font-normal text-on-surface mb-xs">
-              Passive Insights
+          <div className="text-center mb-lg flex flex-col items-center">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+              WHAT YOU GET
+            </span>
+            <h2 className="text-3xl md:text-4xl font-normal text-on-surface mb-xs max-w-[650px] mx-auto leading-tight">
+              Everything you wish you knew about your own workday.
             </h2>
-            <p className="text-base text-on-surface-variant">
-              Your workflow decoded, silently.
+            <p className="text-base text-on-surface-variant max-w-[600px] mx-auto mt-2">
+              Hyper tracks the patterns you can't see yourself — and tells you what actually matters.
             </p>
           </div>
         </ScrollReveal>
@@ -280,12 +282,12 @@ export const BentoGrid = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-on-surface mb-1">
-                    Focus Heat Map
+                    See Your Best Hours
                   </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    Your cognitive peaks and valleys mapped across the week,
-                    identifying exactly when your <b>natural</b> <b>productivity</b>{" "}
-                    flow is strongest.
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Hyper maps your focus patterns across the week so you 
+                    know exactly when you do your best work — and when you don't. 
+                    Stop scheduling deep work at the wrong time.
                   </p>
                 </div>
               </div>
@@ -362,11 +364,12 @@ export const BentoGrid = () => {
                 </div>
                 <div className="mt-4">
                   <h3 className="text-xl font-medium text-on-surface mb-1">
-                    Focus Stability Analysis
+                    Find What's Breaking Your Flow
                   </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    Track how your concentration stabilizes throughout the day and
-                    identify the specific <b>triggers that break your flow</b>.
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Every interruption costs more than you think. Hyper 
+                    tracks your context switches throughout the day and pinpoints 
+                    the exact triggers that break your concentration.
                   </p>
                 </div>
               </div>
@@ -425,14 +428,24 @@ export const BentoGrid = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-on-surface mb-1">
-                    Focus Distribution
+                    Know Where Your Time Really Goes
                   </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    Real-time calculation of your true effective <b>contribution</b>{" "}
-                    versus time lost to context switching and distractions.
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Not what you planned. Not what you hoped. What actually 
+                    happened — broken down by app, project, and hour. No manual 
+                    input, ever.
                   </p>
                 </div>
               </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Stark, direct headline for two-column section */}
+          <div className="md:col-span-6 mt-12 mb-4">
+            <ScrollReveal>
+              <h3 className="text-2xl md:text-3xl font-light text-on-surface">
+                Stop Losing Hours You Don't Know You're Losing.
+              </h3>
             </ScrollReveal>
           </div>
 
@@ -449,18 +462,20 @@ export const BentoGrid = () => {
                   <FragmentationCounter />
 
                   <div className="border-t border-outline-variant/30 pt-4 mt-2">
-                    <p className="text-sm text-on-surface-variant font-medium text-center">
+                    <p className="text-xs text-on-surface-variant font-medium text-center">
                       Fewer fragmentations mean longer focus durations.
                     </p>
                   </div>
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-on-surface mb-1">
-                    Work Fragmentation
+                    Your focus is more fragmented than you think.
                   </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    Understand how frequently your deep work states are interrupted
-                    throughout the day.
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Most people believe they're focused. Hyper shows the 
+                    truth — the constant tab switches, the 4-minute detours, the 
+                    meetings that bleed into deep work time. Awareness is the 
+                    first fix.
                   </p>
                 </div>
               </div>
@@ -523,11 +538,12 @@ export const BentoGrid = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium text-on-surface mb-1">
-                    Intelligence Alerts
+                    Get a tap when you're drifting.
                   </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    Context-aware notifications that protect your wellbeing without
-                    interrupting your critical flow states.
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    Hyper notices when you've been idle or off-task and 
+                    sends a quiet nudge — not a loud notification. Just enough 
+                    to bring you back without breaking your rhythm.
                   </p>
                 </div>
               </div>
