@@ -86,11 +86,11 @@ export const Founder = () => {
                   I'm Aditya. I'd end every day feeling busy but not done.
                 </p>
                 <p>
-                  I tried timers, journals, habit trackers. All of them 
+                  I tried timers, journals, habit trackers. All of them
                   needed me to remember to use them — which meant I forgot.
                 </p>
                 <p>
-                  So I built something that just watches, and tells me the 
+                  So I built something that just watches, and tells me the
                   truth. No input. No streaks. No guilt.
                 </p>
                 <p className="font-semibold text-on-surface text-lg mt-2">
@@ -100,6 +100,14 @@ export const Founder = () => {
                   — Aditya, Creator of Hyper
                 </p>
               </div>
+              <a href="https://launchumo.com" target="_blank" rel="noopener noreferrer" >
+                <img
+                  src="https://launchumo.com/images/badge.webp"
+                  alt="Listed on Launchumo, SaaS directory for indie makers"
+                  width="240"
+                  height="60"
+                />
+              </a>
             </ScrollReveal>
           </div>
         </div>
