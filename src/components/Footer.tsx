@@ -71,7 +71,7 @@ export const Footer = () => {
         </div>
 
         <div className="w-full border-t border-outline-variant/10 my-2"></div>
-        <a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=neutral" alt="Fazier badge" /></a>
+
 
         {/* Navigation Links */}
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[#82756a]">
