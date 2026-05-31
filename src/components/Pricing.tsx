@@ -59,9 +59,22 @@ export const Pricing = () => {
     return interval;
   };
 
+  const [alsoAvailableText, setAlsoAvailableText] = useState("");
+
   useEffect(() => {
     // Paddle integration is now securely hosted on synaptyc.cloud
     setPaddleLoaded(true);
+
+    const ua = window.navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod|android/i.test(ua)) {
+      setAlsoAvailableText("Available on macOS and Windows");
+    } else if (/macintosh|mac os x/i.test(ua)) {
+      setAlsoAvailableText("Also available on Windows");
+    } else if (/windows|win32/i.test(ua)) {
+      setAlsoAvailableText("Also available on macOS");
+    } else {
+      setAlsoAvailableText("Available on macOS and Windows");
+    }
   }, []);
 
   const handlePaddleCheckout = () => {
@@ -267,8 +280,14 @@ export const Pricing = () => {
                     "Get Lifetime Access →"
                   )}
                 </button>
-                <p className="text-[11px] text-on-surface-variant/70 mt-4">
-                  30-day refund, no questions asked.
+                <p className="text-[11px] text-on-surface-variant/70 mt-4 flex flex-col gap-1 items-center">
+                  <span>30-day refund, no questions asked.</span>
+                  {alsoAvailableText && (
+                    <span className="text-[10px] text-primary/70 font-semibold tracking-wide flex items-center gap-1 mt-0.5">
+                      <span>ℹ</span>
+                      <span>{alsoAvailableText}</span>
+                    </span>
+                  )}
                 </p>
               </div>
             )}

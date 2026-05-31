@@ -8,21 +8,26 @@ export const Hero = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [downloadText, setDownloadText] = useState("Download");
   const [deviceWord, setDeviceWord] = useState("computer");
+  const [alsoAvailableText, setAlsoAvailableText] = useState("");
 
   useEffect(() => {
     const ua = window.navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod|android/i.test(ua)) {
       setDownloadText("Download");
       setDeviceWord("device");
+      setAlsoAvailableText("Available on macOS and Windows");
     } else if (/macintosh|mac os x/i.test(ua)) {
       setDownloadText("Download for Mac");
       setDeviceWord("Mac");
+      setAlsoAvailableText("Also available on Windows");
     } else if (/windows|win32/i.test(ua)) {
       setDownloadText("Download for Windows");
       setDeviceWord("PC");
+      setAlsoAvailableText("Also available on macOS");
     } else {
       setDownloadText("Download");
       setDeviceWord("computer");
+      setAlsoAvailableText("Available on macOS and Windows");
     }
   }, []);
 
@@ -86,13 +91,21 @@ export const Hero = () => {
                 See how it works ↓
               </a>
             </div>
-            <p className="text-xs text-on-surface-variant/80 tracking-wide mt-1 flex items-center gap-1.5 justify-center flex-wrap">
-              <span>⬇ 2,400 downloads</span>
-              <span className="opacity-40">•</span>
-              <span>No account needed</span>
-              <span className="opacity-40">•</span>
-              <span>Your data never leaves your {deviceWord}</span>
-            </p>
+            <div className="flex flex-col items-center gap-1.5 mt-1">
+              <p className="text-xs text-on-surface-variant/80 tracking-wide flex items-center gap-1.5 justify-center flex-wrap">
+                <span>⬇ 2,400 downloads</span>
+                <span className="opacity-40">•</span>
+                <span>No account needed</span>
+                <span className="opacity-40">•</span>
+                <span>Your data never leaves your {deviceWord}</span>
+              </p>
+              {alsoAvailableText && (
+                <p className="text-[11px] text-primary/70 font-semibold tracking-wide flex items-center gap-1">
+                  <span>ℹ</span>
+                  <span>{alsoAvailableText}</span>
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
