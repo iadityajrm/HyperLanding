@@ -13,6 +13,17 @@ const SuccessContent = () => {
   const [pollingError, setPollingError] = useState("");
   const [copyConfirmed, setCopyConfirmed] = useState(false);
 
+  const [macInstallStep, setMacInstallStep] = useState(false);
+  const [copiedCommand, setCopiedCommand] = useState(false);
+
+  const terminalCommand = `curl -fsSL hyper.synaptyc.cloud/mac | sh`;
+
+  const handleCopyCommand = () => {
+    navigator.clipboard.writeText(terminalCommand);
+    setCopiedCommand(true);
+    setTimeout(() => setCopiedCommand(false), 2000);
+  };
+
   useEffect(() => {
     if (!email) {
       setPolling(false);
@@ -109,23 +120,96 @@ const SuccessContent = () => {
 
       {/* Action triggers */}
       <div className="flex flex-col gap-sm">
-        {/* MacOS installer download */}
-        <a
-          href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-mac.dmg"
-          className="btn-gradient w-full font-semibold text-sm px-6 py-4 rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.01]"
-        >
-          <span className="material-symbols-outlined text-lg">desktop_mac</span>
-          Download Installer for macOS (.dmg)
-        </a>
+        {macInstallStep ? (
+          <div className="animate-in fade-in zoom-in-95 duration-200 text-center">
+            <div className="flex items-center justify-between mb-4">
+              <button
+                onClick={() => setMacInstallStep(false)}
+                className="text-xs text-on-surface-variant hover:text-on-surface font-semibold flex items-center gap-1 cursor-pointer"
+              >
+                ← Back to OS Options
+              </button>
+              <span className="text-xs font-bold uppercase tracking-wider text-primary">macOS Installation</span>
+            </div>
 
-        {/* Windows installer download */}
-        <a
-          href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-windows.exe"
-          className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-semibold text-sm px-6 py-4 rounded-2xl transition-all shadow-sm flex items-center justify-center gap-3 cursor-pointer border border-outline/10 hover:scale-[1.01]"
-        >
-          <span className="material-symbols-outlined text-lg">desktop_windows</span>
-          Download Installer for Windows (.exe)
-        </a>
+            {/* Security Info Box */}
+            <div className="bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs rounded-xl p-3.5 mb-5 text-left leading-relaxed flex items-start gap-2.5">
+              <span className="material-symbols-outlined text-lg mt-0.5 flex-shrink-0">security</span>
+              <span>
+                <strong>Security Notice:</strong> Installing via Terminal is recommended to prevent macOS Gatekeeper ("unidentified developer") warnings and security download blockages.
+              </span>
+            </div>
+
+            <div className="text-left mb-5 bg-surface-container/50 border border-outline-variant/20 rounded-xl p-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-on-surface mb-3">
+                Simplified Step-by-Step Instructions:
+              </h4>
+              <ol className="text-xs text-on-surface-variant space-y-2 list-decimal pl-4 font-medium leading-relaxed">
+                <li>Open the <strong>Terminal</strong> app (press <kbd className="bg-surface-container px-1.5 py-0.5 rounded text-[10px] border border-outline/20 font-sans">Cmd + Space</kbd>, type "Terminal", and hit Enter).</li>
+                <li>Copy and paste the single command below into the window.</li>
+                <li>Press <kbd className="bg-surface-container px-1.5 py-0.5 rounded text-[10px] border border-outline/20 font-sans">Enter</kbd> to securely download and install Hyper directly into your Applications folder.</li>
+              </ol>
+            </div>
+
+            {/* Command Block - Mock Terminal Window */}
+            <div className="bg-[#0f172a] text-[#38bdf8] text-left rounded-2xl border border-slate-800 shadow-xl overflow-hidden mb-4 max-w-full">
+              {/* Terminal Header */}
+              <div className="bg-[#1e293b]/70 px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-[#ef4444] opacity-80 inline-block"></span>
+                  <span className="w-3 h-3 rounded-full bg-[#f59e0b] opacity-80 inline-block"></span>
+                  <span className="w-3 h-3 rounded-full bg-[#10b981] opacity-80 inline-block"></span>
+                </div>
+                <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500">zsh</span>
+                <div className="w-10"></div>
+              </div>
+              {/* Terminal Body */}
+              <div className="p-5 font-mono text-sm relative select-all flex items-center justify-between gap-4">
+                <span className="text-[#f8fafc] font-medium break-all">{terminalCommand}</span>
+                <button
+                  onClick={handleCopyCommand}
+                  className="bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 rounded-lg p-2 transition-all flex items-center justify-center cursor-pointer shadow-sm border border-slate-700/50 flex-shrink-0"
+                  title="Copy to clipboard"
+                >
+                  <span className="material-symbols-outlined text-[18px]">
+                    {copiedCommand ? "check" : "content_copy"}
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div className="text-[11px] font-semibold text-primary/80 mb-5 tracking-wide px-2 leading-relaxed">
+              ℹ Hyper will be installed directly into your Applications folder.
+            </div>
+
+            <a
+              href="https://github.com/iadityajrm/HyperLanding/releases/latest/download/hyper-mac.dmg"
+              className="text-xs text-[#82756a] hover:text-primary transition-colors font-medium"
+            >
+              Or download the .dmg file directly
+            </a>
+          </div>
+        ) : (
+          <>
+            {/* macOS Installer (Terminal) */}
+            <button
+              onClick={() => setMacInstallStep(true)}
+              className="btn-gradient w-full font-semibold text-sm px-6 py-4 rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.01]"
+            >
+              <span className="material-symbols-outlined text-lg">desktop_mac</span>
+              Download Installer for macOS (.dmg)
+            </button>
+
+            {/* Windows installer download */}
+            <a
+              href="https://github.com/iadityajrm/HyperLanding/releases/latest/download/hyper-win.exe"
+              className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-semibold text-sm px-6 py-4 rounded-2xl transition-all shadow-sm flex items-center justify-center gap-3 cursor-pointer border border-outline/10 hover:scale-[1.01]"
+            >
+              <span className="material-symbols-outlined text-lg">desktop_windows</span>
+              Download Installer for Windows (.exe)
+            </a>
+          </>
+        )}
       </div>
 
       {/* Instructions list */}

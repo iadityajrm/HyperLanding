@@ -145,12 +145,28 @@ export const Footer = () => {
                 <h3 className="text-2xl font-semibold text-on-surface mb-2">
                   Install via Terminal
                 </h3>
-                <p className="text-xs text-on-surface-variant mb-6 px-4 leading-relaxed">
-                  Install Hyper with a single command from your Terminal:
-                </p>
+                
+                {/* Security Info Box */}
+                <div className="bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs rounded-xl p-3.5 mb-5 text-left leading-relaxed flex items-start gap-2.5">
+                  <span className="material-symbols-outlined text-lg mt-0.5 flex-shrink-0">security</span>
+                  <span>
+                    <strong>Security Notice:</strong> Installing via Terminal is recommended to prevent macOS Gatekeeper ("unidentified developer") warnings and security download blockages.
+                  </span>
+                </div>
+
+                <div className="text-left mb-5 bg-surface-container/50 border border-outline-variant/20 rounded-xl p-4">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-on-surface mb-3">
+                    Simplified Step-by-Step Instructions:
+                  </h4>
+                  <ol className="text-xs text-on-surface-variant space-y-2 list-decimal pl-4 font-medium leading-relaxed">
+                    <li>Open the <strong>Terminal</strong> app (press <kbd className="bg-surface-container px-1.5 py-0.5 rounded text-[10px] border border-outline/20 font-sans">Cmd + Space</kbd>, type "Terminal", and hit Enter).</li>
+                    <li>Copy and paste the single command below into the window.</li>
+                    <li>Press <kbd className="bg-surface-container px-1.5 py-0.5 rounded text-[10px] border border-outline/20 font-sans">Enter</kbd> to securely download and install Hyper directly into your Applications folder.</li>
+                  </ol>
+                </div>
 
                 {/* Command Block - Mock Terminal Window */}
-                <div className="bg-[#0f172a] text-[#38bdf8] text-left rounded-2xl border border-slate-800 shadow-xl overflow-hidden mb-5 max-w-full">
+                <div className="bg-[#0f172a] text-[#38bdf8] text-left rounded-2xl border border-slate-800 shadow-xl overflow-hidden mb-4 max-w-full">
                   {/* Terminal Header */}
                   <div className="bg-[#1e293b]/70 px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
                     <div className="flex items-center gap-1.5">
