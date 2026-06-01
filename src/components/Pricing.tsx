@@ -36,7 +36,7 @@ export const Pricing = () => {
       try {
         const res = await fetch(`/.netlify/functions/get-license?email=${encodeURIComponent(email)}`);
         const data = await res.json();
-        
+
         if (data && data.success && data.passcode) {
           setPasscode(data.passcode);
           setPolling(false);
@@ -83,10 +83,10 @@ export const Pricing = () => {
       const checkoutBaseUrl = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
         ? "http://localhost:3000"
         : "https://synaptyc.cloud";
-      
+
       const successUrl = `${window.location.origin}/success`;
       const checkoutUrl = `${checkoutBaseUrl}/purchasehyper?product=hyper&return_url=${encodeURIComponent(successUrl)}`;
-      
+
       window.location.href = checkoutUrl;
     }
   };
@@ -113,7 +113,7 @@ export const Pricing = () => {
                 One price. Yours forever.
               </h2>
               <p className="text-base text-on-surface-variant max-w-[600px] mx-auto mt-2">
-                Most productivity apps charge $10–15/month and still need you to do the work. 
+                Most productivity apps charge $10–15/month and still need you to do the work.
                 Hyper does the work and costs less than a coffee.
               </p>
             </div>
@@ -125,7 +125,7 @@ export const Pricing = () => {
                 <div className="w-16 h-16 bg-[#e0f2fe] text-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-sm">
                   <span className="material-symbols-outlined text-3xl font-semibold">check_circle</span>
                 </div>
-                
+
                 <h3 className="text-2xl font-medium text-on-surface mb-2">
                   Thank You for Your Purchase!
                 </h3>
@@ -171,7 +171,7 @@ export const Pricing = () => {
                 <div className="flex flex-col gap-sm">
                   {/* MacOS installer download */}
                   <a
-                    href="https://github.com/iadityajrm/HyperLanding/releases/download/v1.0.1/hyper-mac.dmg"
+                    href="https://github.com/iadityajrm/HyperLanding/releases/latest/download/hyper-mac.dmg"
                     className="btn-gradient w-full font-medium text-sm px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-lg">desktop_mac</span>
@@ -180,7 +180,7 @@ export const Pricing = () => {
 
                   {/* Windows installer download */}
                   <a
-                    href="https://github.com/iadityajrm/HyperLanding/releases/releases/download/v1.0.1/hyper-windows.exe"
+                    href="https://github.com/iadityajrm/HyperLanding/releases/latest/download/hyper-win.exe"
                     className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-[#ffffff] font-medium text-sm px-6 py-4 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer border border-outline/10"
                   >
                     <span className="material-symbols-outlined text-lg">desktop_windows</span>
@@ -194,7 +194,7 @@ export const Pricing = () => {
                     info@synaptyc.cloud
                   </a>
                 </p>
-                
+
                 <button
                   onClick={() => setPaymentSuccess(false)}
                   className="text-xs text-primary/60 hover:text-primary mt-sm underline block mx-auto cursor-pointer font-medium"
@@ -207,7 +207,7 @@ export const Pricing = () => {
                 <span className="absolute top-4 right-4 bg-primary/10 text-primary border border-primary/20 text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
                   🔒 Limited to first 500 users
                 </span>
-                
+
                 <h3 className="text-2xl font-medium text-on-surface mb-sm mt-4">
                   Lifetime Access
                 </h3>
