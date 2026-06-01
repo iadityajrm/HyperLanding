@@ -1,480 +1,745 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en" style=""><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hyper - Productivity Intelligence</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "primary-container": "#956c44",
-                "inverse-primary": "#eebd8e",
-                "secondary-container": "#d9e3d2",
-                "surface": "#fcf9f6",
-                "primary-fixed-dim": "#eebd8e",
-                "surface-bright": "#fcf9f6",
-                "on-surface-variant": "#50453b",
-                "on-error": "#ffffff",
-                "secondary-fixed": "#dce5d4",
-                "surface-container-lowest": "#ffffff",
-                "on-tertiary-fixed": "#241a0e",
-                "on-tertiary-container": "#fffbff",
-                "on-surface": "#1c1c1a",
-                "on-primary-container": "#fffbff",
-                "surface-dim": "#dcd9d7",
-                "on-tertiary-fixed-variant": "#524436",
-                "primary-fixed": "#ffdcbd",
-                "on-primary-fixed-variant": "#61401b",
-                "on-tertiary": "#ffffff",
-                "on-secondary-fixed-variant": "#41493d",
-                "secondary": "#586154",
-                "surface-container-high": "#eae8e5",
-                "surface-container": "#f0edea",
-                "error-container": "#ffdad6",
-                "outline-variant": "#d4c4b7",
-                "surface-tint": "#7c5730",
-                "on-primary-fixed": "#2c1600",
-                "primary": "#79542e",
-                "on-primary": "#ffffff",
-                "inverse-surface": "#31302f",
-                "on-secondary-container": "#5c6558",
-                "inverse-on-surface": "#f3f0ed",
-                "surface-container-low": "#f6f3f0",
-                "on-secondary-fixed": "#161e13",
-                "on-background": "#1c1c1a",
-                "tertiary-fixed-dim": "#d7c3b0",
-                "secondary-fixed-dim": "#c0c9b9",
-                "on-secondary": "#ffffff",
-                "surface-container-highest": "#e5e2df",
-                "background": "#fcf9f6",
-                "surface-variant": "#e5e2df",
-                "tertiary-container": "#827261",
-                "error": "#ba1a1a",
-                "tertiary-fixed": "#f4dfcb",
-                "tertiary": "#68594a",
-                "on-error-container": "#93000a",
-                "outline": "#82756a"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "lg": "48px",
-                "sm": "12px",
-                "margin-mobile": "16px",
-                "xl": "80px",
-                "xs": "4px",
-                "md": "24px",
-                "gutter": "24px",
-                "base": "8px",
-                "margin-desktop": "64px"
-        },
-        "fontFamily": {
-                "headline-lg": [
-                        "Geist"
-                ],
-                "headline-md": [
-                        "Geist"
-                ],
-                "body-md": [
-                        "Geist"
-                ],
-                "headline-lg-mobile": [
-                        "Geist"
-                ],
-                "label-sm": [
-                        "Geist"
-                ],
-                "display": [
-                        "Geist"
-                ],
-                "body-lg": [
-                        "Geist"
-                ],
-                "label-md": [
-                        "Geist"
-                ]
-        },
-        "fontSize": {
-                "headline-lg": [
-                        "32px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "400"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "1.3",
-                                "fontWeight": "400"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "400"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-sm": [
-                        "12px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "display": [
-                        "48px",
-                        {
-                                "lineHeight": "1.1",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "300"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-md": [
-                        "14px",
-                        {
-                                "lineHeight": "1.4",
-                                "letterSpacing": "0.02em",
-                                "fontWeight": "500"
-                        }
-                ]
-        }
-},
-    },
-  }
-</script>
-<style>
-        body { font-family: 'Geist', sans-serif; }
-        .ambient-shadow { box-shadow: 0 10px 30px rgba(166, 124, 82, 0.05); }
-        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
-    </style>
+<html class="light" lang="en" style="">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Hyper - Productivity Intelligence</title>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z08J3NSXCN"></script>
+        <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+                gtag('config', 'G-Z08J3NSXCN');
+        </script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"
+                rel="stylesheet" />
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "primary-container": "#956c44",
+                                                "inverse-primary": "#eebd8e",
+                                                "secondary-container": "#d9e3d2",
+                                                "surface": "#fcf9f6",
+                                                "primary-fixed-dim": "#eebd8e",
+                                                "surface-bright": "#fcf9f6",
+                                                "on-surface-variant": "#50453b",
+                                                "on-error": "#ffffff",
+                                                "secondary-fixed": "#dce5d4",
+                                                "surface-container-lowest": "#ffffff",
+                                                "on-tertiary-fixed": "#241a0e",
+                                                "on-tertiary-container": "#fffbff",
+                                                "on-surface": "#1c1c1a",
+                                                "on-primary-container": "#fffbff",
+                                                "surface-dim": "#dcd9d7",
+                                                "on-tertiary-fixed-variant": "#524436",
+                                                "primary-fixed": "#ffdcbd",
+                                                "on-primary-fixed-variant": "#61401b",
+                                                "on-tertiary": "#ffffff",
+                                                "on-secondary-fixed-variant": "#41493d",
+                                                "secondary": "#586154",
+                                                "surface-container-high": "#eae8e5",
+                                                "surface-container": "#f0edea",
+                                                "error-container": "#ffdad6",
+                                                "outline-variant": "#d4c4b7",
+                                                "surface-tint": "#7c5730",
+                                                "on-primary-fixed": "#2c1600",
+                                                "primary": "#79542e",
+                                                "on-primary": "#ffffff",
+                                                "inverse-surface": "#31302f",
+                                                "on-secondary-container": "#5c6558",
+                                                "inverse-on-surface": "#f3f0ed",
+                                                "surface-container-low": "#f6f3f0",
+                                                "on-secondary-fixed": "#161e13",
+                                                "on-background": "#1c1c1a",
+                                                "tertiary-fixed-dim": "#d7c3b0",
+                                                "secondary-fixed-dim": "#c0c9b9",
+                                                "on-secondary": "#ffffff",
+                                                "surface-container-highest": "#e5e2df",
+                                                "background": "#fcf9f6",
+                                                "surface-variant": "#e5e2df",
+                                                "tertiary-container": "#827261",
+                                                "error": "#ba1a1a",
+                                                "tertiary-fixed": "#f4dfcb",
+                                                "tertiary": "#68594a",
+                                                "on-error-container": "#93000a",
+                                                "outline": "#82756a"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "lg": "48px",
+                                                "sm": "12px",
+                                                "margin-mobile": "16px",
+                                                "xl": "80px",
+                                                "xs": "4px",
+                                                "md": "24px",
+                                                "gutter": "24px",
+                                                "base": "8px",
+                                                "margin-desktop": "64px"
+                                        },
+                                        "fontFamily": {
+                                                "headline-lg": [
+                                                        "Geist"
+                                                ],
+                                                "headline-md": [
+                                                        "Geist"
+                                                ],
+                                                "body-md": [
+                                                        "Geist"
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "Geist"
+                                                ],
+                                                "label-sm": [
+                                                        "Geist"
+                                                ],
+                                                "display": [
+                                                        "Geist"
+                                                ],
+                                                "body-lg": [
+                                                        "Geist"
+                                                ],
+                                                "label-md": [
+                                                        "Geist"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "headline-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "1.2",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "1.3",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "1.6",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "1.2",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "label-sm": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "1.2",
+                                                                "letterSpacing": "0.05em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "1.1",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "300"
+                                                        }
+                                                ],
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "1.6",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "label-md": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "1.4",
+                                                                "letterSpacing": "0.02em",
+                                                                "fontWeight": "500"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                body {
+                        font-family: 'Geist', sans-serif;
+                }
+
+                .ambient-shadow {
+                        box-shadow: 0 10px 30px rgba(166, 124, 82, 0.05);
+                }
+
+                .glass-card {
+                        background: rgba(255, 255, 255, 0.7);
+                        backdrop-filter: blur(10px);
+                }
+        </style>
 </head>
+
 <body class="bg-surface-container-low text-on-surface min-h-screen flex flex-col">
-<!-- TopNavBar Component -->
-<nav class="w-full top-0 bg-surface-bright/80 backdrop-blur-md sticky z-50">
-<div class="max-w-[1200px] mx-auto px-gutter flex justify-between items-center h-20">
-<div class="flex items-center gap-md">
-<svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
-<path d="M12 2v20"></path>
-<path d="M2 12h20"></path>
-<path d="m4.93 4.93 14.14 14.14"></path>
-<path d="m4.93 19.07 14.14-14.14"></path>
-</svg>
-<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface">Hyper</span>
-</div>
-<div class="hidden md:flex items-center gap-lg font-body-md text-body-md">
-<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1 Active: opacity-80 transition-all hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Features</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Intelligence</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Insights</a>
-</div>
-<div class="flex items-center">
-<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary/90 transition-colors">
-                    Download
-                </button>
-</div>
-</div>
-</nav>
-<main class="flex-grow">
-<!-- Hero Section -->
-<section class="max-w-[1200px] mx-auto px-gutter pt-margin-desktop pb-0 grid md:grid-cols-2 gap-lg items-center overflow-hidden">
-<div class="flex flex-col gap-md pb-xl">
-<h1 class="font-display text-display md:text-[64px] text-on-surface leading-tight">
-                    Productivity Intelligence, Without the Theater.
-                </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-                    Hyper automatically analyzes your workflow in the background. No timers, no manual tracking, just deep insights into how you actually work.
-                </p>
-<div class="flex flex-wrap items-center gap-sm mt-sm">
-<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-sm">
-                        Download for Desktop
-                    </button>
-<button class="border border-outline-variant text-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-variant/50 transition-all">
-                        See How It Works
-                    </button>
-</div>
-</div>
-<div class="relative w-full h-full flex items-end justify-center p-md pb-0 pt-lg ambient-shadow">
-<img alt="Hyper Dashboard Screenshot" class="w-full h-auto object-contain drop-shadow-xl scale-[1.2] translate-y-[20%] origin-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx87G9Phf30PXlb6CWVPjU5Dwb2l9Z3_84PIbApW6gGNid4p5mtRohxawllbzip2BmjdYTgLdvbOhW9WR5dmY2rNktaD1qokKbVrM5YWBFNj0ei4AfsC1pqbhIvhQ2glYzidq6g3v_6YvXJgYOC0b6J9_DPI5iWH-uqv19yWFsqAnQvfW20r5iyqbstQjEpBuv1g-5sqgu8_QWWR8NZIOag1N6xnN9DBnLzhvit5EZwZlRU7fTgZ3o-gXHYLuiDOhlT7Op5EuUlBHM"/>
-</div>
-</section>
-<!-- Features Bento Grid -->
-<section class="bg-surface py-xl">
-<div class="max-w-[1200px] mx-auto px-gutter">
-<div class="text-center mb-lg">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Passive Insights</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Your workflow decoded, silently.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-6 gap-md">
-<!-- Bento Item 1 -->
-<div class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
-<div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-4">
-<div class="flex justify-between items-center mb-3">
-<span class="text-xs font-semibold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_view_week</span> Distribution Grid</span>
-<div class="flex gap-1 items-center text-[10px] text-on-surface-variant">
-<span class="">Low</span>
-<div class="w-2 h-2 rounded-sm bg-primary/10"></div>
-<div class="w-2 h-2 rounded-sm bg-primary/30"></div>
-<div class="w-2 h-2 rounded-sm bg-primary/60"></div>
-<div class="w-2 h-2 rounded-sm bg-primary"></div>
-<span class="">High</span>
-</div>
-</div>
-<div class="grid grid-cols-7 gap-1 mt-auto">
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">S</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">M</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">T</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">W</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">T</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">F</div>
-<div class="text-center text-[8px] text-on-surface-variant font-medium mb-1">S</div>
-<!-- Row 1 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/60"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<!-- Row 2 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/60"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<!-- Row 3 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/60"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/60"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<!-- Row 4 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<!-- Row 5 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<!-- Row 6 -->
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/30"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/60"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-<div class="w-full aspect-[2.5/1] rounded-sm bg-primary/10"></div>
-</div>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Focus Heat Map</h3>
-<p class="font-body-md text-sm text-on-surface-variant">Your cognitive peaks and valleys mapped across the week, identifying exactly when your <b>natural</b> <b>productivity</b> flow is strongest.</p>
-</div>
-</div>
-<!-- Bento Item 2 -->
-<div class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
-<div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-4">
-<div class="flex justify-between items-center mb-6">
-<span class="text-sm font-semibold text-on-surface flex items-center gap-2">Today's Focus <span class="bg-error-container text-error px-2 py-0.5 rounded-full text-[10px]">↓ 11%</span></span>
-<div class="text-xs text-primary font-medium">32% avg</div>
-</div>
-<div class="relative w-full flex-grow mt-auto min-h-[120px]">
-<svg class="w-full h-full absolute inset-0" preserveaspectratio="none" viewbox="0 0 200 100">
-<line class="text-outline-variant/30" stroke="currentColor" stroke-dasharray="2,2" x1="0" x2="200" y1="25" y2="25"></line>
-<line class="text-outline-variant/30" stroke="currentColor" stroke-dasharray="2,2" x1="0" x2="200" y1="50" y2="50"></line>
-<line class="text-outline-variant/30" stroke="currentColor" stroke-dasharray="2,2" x1="0" x2="200" y1="75" y2="75"></line>
-<path class="text-primary" d="M0,90 C20,90 30,70 40,70 C50,70 60,90 70,90 C80,90 90,20 100,30 C110,40 120,90 130,90 C140,90 150,30 160,20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-<path class="opacity-10 text-primary" d="M0,90 C20,90 30,70 40,70 C50,70 60,90 70,90 C80,90 90,20 100,30 C110,40 120,90 130,90 C140,90 150,30 160,20 L160,100 L0,100 Z" fill="currentColor"></path>
-</svg>
-<div class="absolute -bottom-4 left-0 w-full flex justify-between text-[10px] text-on-surface-variant px-1">
-<span class="">09:00 AM</span>
-<span class="">09:00 PM</span>
-</div>
-</div>
-</div>
-<div class="mt-4">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Focus Stability Analysis</h3>
-<p class="font-body-md text-sm text-on-surface-variant">Track how your concentration stabilizes throughout the day and identify the specific <b>triggers that break your flow</b>.</p>
-</div>
-</div>
-<!-- Bento Item 3 -->
-<div class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
-<div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center">
-<div class="flex justify-between items-end mb-6">
-<div>
-<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wide mb-1">True Effective Work</p>
-<div class="text-4xl font-display text-primary">1.12h</div>
-<p class="text-xs text-on-surface-variant mt-1">out of 5.4h logged time</p>
-</div>
-<div class="text-right">
-<span class="text-sm font-semibold text-on-surface bg-surface-container-highest px-3 py-1 rounded-full">78% Efficiency</span>
-</div>
-</div>
-<div class="w-full h-3 flex rounded-full overflow-hidden mb-4 bg-surface-variant">
-<div class="bg-primary h-full" style="width: 30%"></div>
-<div class="bg-error h-full" style="width: 15%"></div>
-<div class="bg-tertiary h-full" style="width: 10%"></div>
-<div class="bg-secondary-fixed-dim h-full" style="width: 45%"></div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs text-on-surface-variant">
-<div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary"></div> Work (30%)</div>
-<div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-error"></div> Distract (15%)</div>
-<div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-tertiary"></div> Switches (10%)</div>
-<div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></div> Idle (45%)</div>
-</div>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Focus Distribution</h3>
-<p class="font-body-md text-sm text-on-surface-variant">Real-time calculation of your true effective <b>contribution versus time lost</b> to context switching and distractions.</p>
-</div>
-</div>
-<!-- Bento Item 4 -->
-<div class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-3">
-<div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center">
-<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wide mb-2 font-semibold">FRAGMENTATION</p>
-<div class="text-6xl font-display text-error font-bold mb-6 tracking-tight">17 <span class="text-4xl tracking-normal">times</span></div>
-<div class="border-t border-outline-variant/30 pt-4 mt-2">
-<p class="text-sm text-on-surface-variant font-medium">Fewer fragmentations mean longer focus durations.</p>
-</div>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Work Fragmentation</h3>
-<p class="font-body-md text-sm text-on-surface-variant">Understand how frequently your deep work states are interrupted throughout the day.</p>
-</div>
-</div>
-<!-- Bento Item 5 -->
-<div class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-3">
-<div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center items-center relative overflow-hidden">
-<div class="bg-inverse-surface rounded-xl p-4 w-full max-w-sm flex gap-4 items-start shadow-xl relative border border-outline/20">
-<div class="bg-surface-tint/10 p-2 rounded-full flex-shrink-0 text-inverse-primary">
-<span class="material-symbols-outlined text-xl">vital_signs</span>
-</div>
-<div class="pt-1">
-<h4 class="font-semibold text-sm mb-1 text-inverse-on-surface">Take a Screen Break</h4>
-<p class="text-xs text-surface-variant leading-relaxed">You have been active continuously for 53 minutes. Step away for a few minutes to rest your eyes.</p>
-</div>
-<button class="absolute top-3 right-3 text-surface-variant hover:text-inverse-on-surface transition-colors">
-<span class="material-symbols-outlined text-sm">close</span>
-</button>
-</div>
-</div>
-<div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Intelligence Alerts</h3>
-<p class="font-body-md text-sm text-on-surface-variant">Context-aware notifications that protect your wellbeing without interrupting your critical flow states.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Bottom Section -->
-<section class="max-w-[1200px] mx-auto px-gutter py-xl text-center">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Zero Friction. Focus Stability. Deep Clarity.</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-                Hyper is designed to be invisible. It runs quietly in the background, requiring no manual input, ensuring your creative flow remains entirely uninterrupted while gathering the insights you need to optimize your day.
-            </p>
-</section>
-<!-- Intro Video Section -->
-<section class="max-w-[1200px] mx-auto px-gutter py-xl">
-<div class="w-full aspect-video bg-surface-variant rounded-2xl relative overflow-hidden group cursor-pointer ambient-shadow">
-<div class="absolute inset-0 bg-surface-tint/10 transition-opacity group-hover:opacity-0 duration-300"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<button class="bg-primary/90 text-on-primary w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md transition-transform group-hover:scale-110 duration-300 shadow-lg">
-<span class="material-symbols-outlined text-4xl ml-2">play_arrow</span>
-</button>
-</div>
-</div>
-</section>
-<!-- Pricing Section -->
-<section class="bg-surface-container py-xl">
-<div class="max-w-[1200px] mx-auto px-gutter">
-<div class="text-center mb-lg">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Simple, Honest Pricing</h2>
-</div>
-<div class="max-w-md mx-auto bg-surface-container-lowest rounded-2xl p-lg ambient-shadow border border-outline-variant/30 text-center">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Lifetime Access</h3>
-<div class="font-display text-display text-primary mb-md">$7.99</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-md">
-                    One-time purchase. No subscriptions, no hidden fees. Just passive intelligence for life.
-                </p>
-<ul class="text-left font-body-md text-body-md text-on-surface-variant mb-lg space-y-sm">
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                        Complete focus history
-                    </li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                        Priority processing
-                    </li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                        All future updates
-                    </li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                        Local-first data
-                    </li>
-</ul>
-<button class="w-full bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-sm">
-                    Get Lifetime Access
-                </button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer Component -->
-<footer class="w-full py-xl border-t border-outline-variant/30 bg-surface dark:bg-inverse-surface">
-<div class="max-w-[1200px] mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md">
-<div class="flex items-center gap-sm">
-<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Hyper</span>
-</div>
-<div class="flex gap-md font-label-md text-label-md">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer" href="#">Privacy</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer" href="#">Terms</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer" href="#">Support</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer" href="#">Contact</a>
-</div>
-<div class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant">
-                © 2026 Hyper By Synaptyc. All rights reserved.
-            </div>
-</div>
-</footer>
-</body></html>
+        <!-- TopNavBar Component -->
+        <nav class="w-full top-0 bg-surface-bright/80 backdrop-blur-md sticky z-50">
+                <div class="max-w-[1200px] mx-auto px-gutter flex justify-between items-center h-20">
+                        <div class="flex items-center gap-md">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        viewbox="0 0 24 24">
+                                        <path d="M12 2v20"></path>
+                                        <path d="M2 12h20"></path>
+                                        <path d="m4.93 4.93 14.14 14.14"></path>
+                                        <path d="m4.93 19.07 14.14-14.14"></path>
+                                </svg>
+                                <span
+                                        class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface">Hyper</span>
+                        </div>
+                        <div class="hidden md:flex items-center gap-lg font-body-md text-body-md">
+                                <a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1 Active: opacity-80 transition-all hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                                        href="#">Features</a>
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                                        href="#">Intelligence</a>
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                                        href="#">Insights</a>
+                        </div>
+                        <div class="flex items-center">
+                                <button
+                                        class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary/90 transition-colors">
+                                        Download
+                                </button>
+                        </div>
+                </div>
+        </nav>
+        <main class="flex-grow">
+                <!-- Hero Section -->
+                <section
+                        class="max-w-[1200px] mx-auto px-gutter pt-margin-desktop pb-0 grid md:grid-cols-2 gap-lg items-center overflow-hidden">
+                        <div class="flex flex-col gap-md pb-xl">
+                                <h1 class="font-display text-display md:text-[64px] text-on-surface leading-tight">
+                                        Productivity Intelligence, Without the Theater.
+                                </h1>
+                                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                                        Hyper automatically analyzes your workflow in the background. No timers, no
+                                        manual tracking, just deep insights into how you actually work.
+                                </p>
+                                <div class="flex flex-wrap items-center gap-sm mt-sm">
+                                        <button
+                                                class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-sm">
+                                                Download for Desktop
+                                        </button>
+                                        <button
+                                                class="border border-outline-variant text-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-surface-variant/50 transition-all">
+                                                See How It Works
+                                        </button>
+                                </div>
+                        </div>
+                        <div
+                                class="relative w-full h-full flex items-end justify-center p-md pb-0 pt-lg ambient-shadow">
+                                <img alt="Hyper Dashboard Screenshot"
+                                        class="w-full h-auto object-contain drop-shadow-xl scale-[1.2] translate-y-[20%] origin-bottom"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx87G9Phf30PXlb6CWVPjU5Dwb2l9Z3_84PIbApW6gGNid4p5mtRohxawllbzip2BmjdYTgLdvbOhW9WR5dmY2rNktaD1qokKbVrM5YWBFNj0ei4AfsC1pqbhIvhQ2glYzidq6g3v_6YvXJgYOC0b6J9_DPI5iWH-uqv19yWFsqAnQvfW20r5iyqbstQjEpBuv1g-5sqgu8_QWWR8NZIOag1N6xnN9DBnLzhvit5EZwZlRU7fTgZ3o-gXHYLuiDOhlT7Op5EuUlBHM" />
+                        </div>
+                </section>
+                <!-- Features Bento Grid -->
+                <section class="bg-surface py-xl">
+                        <div class="max-w-[1200px] mx-auto px-gutter">
+                                <div class="text-center mb-lg">
+                                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Passive
+                                                Insights</h2>
+                                        <p class="font-body-md text-body-md text-on-surface-variant">Your workflow
+                                                decoded, silently.</p>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-6 gap-md">
+                                        <!-- Bento Item 1 -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
+                                                <div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-4">
+                                                        <div class="flex justify-between items-center mb-3">
+                                                                <span
+                                                                        class="text-xs font-semibold text-on-surface flex items-center gap-1"><span
+                                                                                class="material-symbols-outlined text-[14px]">calendar_view_week</span>
+                                                                        Distribution Grid</span>
+                                                                <div
+                                                                        class="flex gap-1 items-center text-[10px] text-on-surface-variant">
+                                                                        <span class="">Low</span>
+                                                                        <div class="w-2 h-2 rounded-sm bg-primary/10">
+                                                                        </div>
+                                                                        <div class="w-2 h-2 rounded-sm bg-primary/30">
+                                                                        </div>
+                                                                        <div class="w-2 h-2 rounded-sm bg-primary/60">
+                                                                        </div>
+                                                                        <div class="w-2 h-2 rounded-sm bg-primary">
+                                                                        </div>
+                                                                        <span class="">High</span>
+                                                                </div>
+                                                        </div>
+                                                        <div class="grid grid-cols-7 gap-1 mt-auto">
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        S</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        M</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        T</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        W</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        T</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        F</div>
+                                                                <div
+                                                                        class="text-center text-[8px] text-on-surface-variant font-medium mb-1">
+                                                                        S</div>
+                                                                <!-- Row 1 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/60">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <!-- Row 2 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/60">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <!-- Row 3 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/60">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/60">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <!-- Row 4 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <!-- Row 5 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <!-- Row 6 -->
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/30">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/60">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                                <div
+                                                                        class="w-full aspect-[2.5/1] rounded-sm bg-primary/10">
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div>
+                                                        <h3
+                                                                class="font-headline-md text-headline-md text-on-surface mb-1">
+                                                                Focus Heat Map</h3>
+                                                        <p class="font-body-md text-sm text-on-surface-variant">Your
+                                                                cognitive peaks and valleys mapped across the week,
+                                                                identifying exactly when your <b>natural</b>
+                                                                <b>productivity</b> flow is strongest.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Bento Item 2 -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
+                                                <div class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-4">
+                                                        <div class="flex justify-between items-center mb-6">
+                                                                <span
+                                                                        class="text-sm font-semibold text-on-surface flex items-center gap-2">Today's
+                                                                        Focus <span
+                                                                                class="bg-error-container text-error px-2 py-0.5 rounded-full text-[10px]">↓
+                                                                                11%</span></span>
+                                                                <div class="text-xs text-primary font-medium">32% avg
+                                                                </div>
+                                                        </div>
+                                                        <div class="relative w-full flex-grow mt-auto min-h-[120px]">
+                                                                <svg class="w-full h-full absolute inset-0"
+                                                                        preserveaspectratio="none"
+                                                                        viewbox="0 0 200 100">
+                                                                        <line class="text-outline-variant/30"
+                                                                                stroke="currentColor"
+                                                                                stroke-dasharray="2,2" x1="0" x2="200"
+                                                                                y1="25" y2="25"></line>
+                                                                        <line class="text-outline-variant/30"
+                                                                                stroke="currentColor"
+                                                                                stroke-dasharray="2,2" x1="0" x2="200"
+                                                                                y1="50" y2="50"></line>
+                                                                        <line class="text-outline-variant/30"
+                                                                                stroke="currentColor"
+                                                                                stroke-dasharray="2,2" x1="0" x2="200"
+                                                                                y1="75" y2="75"></line>
+                                                                        <path class="text-primary"
+                                                                                d="M0,90 C20,90 30,70 40,70 C50,70 60,90 70,90 C80,90 90,20 100,30 C110,40 120,90 130,90 C140,90 150,30 160,20"
+                                                                                fill="none" stroke="currentColor"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                stroke-width="2"></path>
+                                                                        <path class="opacity-10 text-primary"
+                                                                                d="M0,90 C20,90 30,70 40,70 C50,70 60,90 70,90 C80,90 90,20 100,30 C110,40 120,90 130,90 C140,90 150,30 160,20 L160,100 L0,100 Z"
+                                                                                fill="currentColor"></path>
+                                                                </svg>
+                                                                <div
+                                                                        class="absolute -bottom-4 left-0 w-full flex justify-between text-[10px] text-on-surface-variant px-1">
+                                                                        <span class="">09:00 AM</span>
+                                                                        <span class="">09:00 PM</span>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="mt-4">
+                                                        <h3
+                                                                class="font-headline-md text-headline-md text-on-surface mb-1">
+                                                                Focus Stability Analysis</h3>
+                                                        <p class="font-body-md text-sm text-on-surface-variant">Track
+                                                                how your concentration stabilizes throughout the day and
+                                                                identify the specific <b>triggers that break your
+                                                                        flow</b>.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Bento Item 3 -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-2">
+                                                <div
+                                                        class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center">
+                                                        <div class="flex justify-between items-end mb-6">
+                                                                <div>
+                                                                        <p
+                                                                                class="text-xs text-on-surface-variant font-medium uppercase tracking-wide mb-1">
+                                                                                True Effective Work</p>
+                                                                        <div class="text-4xl font-display text-primary">
+                                                                                1.12h</div>
+                                                                        <p class="text-xs text-on-surface-variant mt-1">
+                                                                                out of 5.4h logged time</p>
+                                                                </div>
+                                                                <div class="text-right">
+                                                                        <span
+                                                                                class="text-sm font-semibold text-on-surface bg-surface-container-highest px-3 py-1 rounded-full">78%
+                                                                                Efficiency</span>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="w-full h-3 flex rounded-full overflow-hidden mb-4 bg-surface-variant">
+                                                                <div class="bg-primary h-full" style="width: 30%"></div>
+                                                                <div class="bg-error h-full" style="width: 15%"></div>
+                                                                <div class="bg-tertiary h-full" style="width: 10%">
+                                                                </div>
+                                                                <div class="bg-secondary-fixed-dim h-full"
+                                                                        style="width: 45%"></div>
+                                                        </div>
+                                                        <div
+                                                                class="grid grid-cols-2 gap-3 text-xs text-on-surface-variant">
+                                                                <div class="flex items-center gap-2">
+                                                                        <div class="w-2 h-2 rounded-full bg-primary">
+                                                                        </div> Work (30%)
+                                                                </div>
+                                                                <div class="flex items-center gap-2">
+                                                                        <div class="w-2 h-2 rounded-full bg-error">
+                                                                        </div> Distract (15%)
+                                                                </div>
+                                                                <div class="flex items-center gap-2">
+                                                                        <div class="w-2 h-2 rounded-full bg-tertiary">
+                                                                        </div> Switches (10%)
+                                                                </div>
+                                                                <div class="flex items-center gap-2">
+                                                                        <div
+                                                                                class="w-2 h-2 rounded-full bg-secondary-fixed-dim">
+                                                                        </div> Idle (45%)
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div>
+                                                        <h3
+                                                                class="font-headline-md text-headline-md text-on-surface mb-1">
+                                                                Focus Distribution</h3>
+                                                        <p class="font-body-md text-sm text-on-surface-variant">
+                                                                Real-time calculation of your true effective
+                                                                <b>contribution versus time lost</b> to context
+                                                                switching and distractions.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Bento Item 4 -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-3">
+                                                <div
+                                                        class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center">
+                                                        <p
+                                                                class="text-xs text-on-surface-variant font-medium uppercase tracking-wide mb-2 font-semibold">
+                                                                FRAGMENTATION</p>
+                                                        <div
+                                                                class="text-6xl font-display text-error font-bold mb-6 tracking-tight">
+                                                                17 <span class="text-4xl tracking-normal">times</span>
+                                                        </div>
+                                                        <div class="border-t border-outline-variant/30 pt-4 mt-2">
+                                                                <p class="text-sm text-on-surface-variant font-medium">
+                                                                        Fewer fragmentations mean longer focus
+                                                                        durations.</p>
+                                                        </div>
+                                                </div>
+                                                <div>
+                                                        <h3
+                                                                class="font-headline-md text-headline-md text-on-surface mb-1">
+                                                                Work Fragmentation</h3>
+                                                        <p class="font-body-md text-sm text-on-surface-variant">
+                                                                Understand how frequently your deep work states are
+                                                                interrupted throughout the day.</p>
+                                                </div>
+                                        </div>
+                                        <!-- Bento Item 5 -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-2xl p-md ambient-shadow flex flex-col h-full min-h-[350px] md:col-span-3">
+                                                <div
+                                                        class="flex-grow flex flex-col mb-md rounded-xl bg-surface p-6 justify-center items-center relative overflow-hidden">
+                                                        <div
+                                                                class="bg-inverse-surface rounded-xl p-4 w-full max-w-sm flex gap-4 items-start shadow-xl relative border border-outline/20">
+                                                                <div
+                                                                        class="bg-surface-tint/10 p-2 rounded-full flex-shrink-0 text-inverse-primary">
+                                                                        <span
+                                                                                class="material-symbols-outlined text-xl">vital_signs</span>
+                                                                </div>
+                                                                <div class="pt-1">
+                                                                        <h4
+                                                                                class="font-semibold text-sm mb-1 text-inverse-on-surface">
+                                                                                Take a Screen Break</h4>
+                                                                        <p
+                                                                                class="text-xs text-surface-variant leading-relaxed">
+                                                                                You have been active continuously for 53
+                                                                                minutes. Step away for a few minutes to
+                                                                                rest your eyes.</p>
+                                                                </div>
+                                                                <button
+                                                                        class="absolute top-3 right-3 text-surface-variant hover:text-inverse-on-surface transition-colors">
+                                                                        <span
+                                                                                class="material-symbols-outlined text-sm">close</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                                <div>
+                                                        <h3
+                                                                class="font-headline-md text-headline-md text-on-surface mb-1">
+                                                                Intelligence Alerts</h3>
+                                                        <p class="font-body-md text-sm text-on-surface-variant">
+                                                                Context-aware notifications that protect your wellbeing
+                                                                without interrupting your critical flow states.</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- Bottom Section -->
+                <section class="max-w-[1200px] mx-auto px-gutter py-xl text-center">
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Zero Friction. Focus
+                                Stability. Deep Clarity.</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                                Hyper is designed to be invisible. It runs quietly in the background, requiring no
+                                manual input, ensuring your creative flow remains entirely uninterrupted while gathering
+                                the insights you need to optimize your day.
+                        </p>
+                </section>
+                <!-- Intro Video Section -->
+                <section class="max-w-[1200px] mx-auto px-gutter py-xl">
+                        <div
+                                class="w-full aspect-video bg-surface-variant rounded-2xl relative overflow-hidden group cursor-pointer ambient-shadow">
+                                <div
+                                        class="absolute inset-0 bg-surface-tint/10 transition-opacity group-hover:opacity-0 duration-300">
+                                </div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                        <button
+                                                class="bg-primary/90 text-on-primary w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md transition-transform group-hover:scale-110 duration-300 shadow-lg">
+                                                <span class="material-symbols-outlined text-4xl ml-2">play_arrow</span>
+                                        </button>
+                                </div>
+                        </div>
+                </section>
+                <!-- Pricing Section -->
+                <section class="bg-surface-container py-xl">
+                        <div class="max-w-[1200px] mx-auto px-gutter">
+                                <div class="text-center mb-lg">
+                                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Simple,
+                                                Honest Pricing</h2>
+                                </div>
+                                <div
+                                        class="max-w-md mx-auto bg-surface-container-lowest rounded-2xl p-lg ambient-shadow border border-outline-variant/30 text-center">
+                                        <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Lifetime
+                                                Access</h3>
+                                        <div class="font-display text-display text-primary mb-md">$7.99</div>
+                                        <p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                                                One-time purchase. No subscriptions, no hidden fees. Just passive
+                                                intelligence for life.
+                                        </p>
+                                        <ul
+                                                class="text-left font-body-md text-body-md text-on-surface-variant mb-lg space-y-sm">
+                                                <li class="flex items-center gap-sm">
+                                                        <span
+                                                                class="material-symbols-outlined text-primary">check_circle</span>
+                                                        Complete focus history
+                                                </li>
+                                                <li class="flex items-center gap-sm">
+                                                        <span
+                                                                class="material-symbols-outlined text-primary">check_circle</span>
+                                                        Priority processing
+                                                </li>
+                                                <li class="flex items-center gap-sm">
+                                                        <span
+                                                                class="material-symbols-outlined text-primary">check_circle</span>
+                                                        All future updates
+                                                </li>
+                                                <li class="flex items-center gap-sm">
+                                                        <span
+                                                                class="material-symbols-outlined text-primary">check_circle</span>
+                                                        Local-first data
+                                                </li>
+                                        </ul>
+                                        <button
+                                                class="w-full bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-sm">
+                                                Get Lifetime Access
+                                        </button>
+                                </div>
+                        </div>
+                </section>
+        </main>
+        <!-- Footer Component -->
+        <footer class="w-full py-xl border-t border-outline-variant/30 bg-surface dark:bg-inverse-surface">
+                <div
+                        class="max-w-[1200px] mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md">
+                        <div class="flex items-center gap-sm">
+                                <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Hyper</span>
+                        </div>
+                        <div class="flex gap-md font-label-md text-label-md">
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer"
+                                        href="#">Privacy</a>
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer"
+                                        href="#">Terms</a>
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer"
+                                        href="#">Support</a>
+                                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all cursor-pointer"
+                                        href="#">Contact</a>
+                        </div>
+                        <div class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant">
+                                © 2026 Hyper By Synaptyc. All rights reserved.
+                        </div>
+                </div>
+        </footer>
+</body>
+
+</html>
